@@ -19,14 +19,6 @@
 
 ------------
 
-db.students.first.subject.forEach(() => {
-  
-})
-
-
-------------
-
-
 {
   students: {
     name: [
@@ -62,5 +54,24 @@ db.students.first.subject.forEach(() => {
   }
 }
 
-  
+------------
 
+{
+  students: [
+    {
+      name: "Max",
+      subject: ref(1)
+    }
+  ] & {
+    length: number,
+    sum?: number
+    ...
+  },
+  ...
+}
+
+------------
+
+db.students.first.subject.forEach(() => {
+  
+})
