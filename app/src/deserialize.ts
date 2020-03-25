@@ -19,8 +19,8 @@ export function deserialize<DataStore extends GenericSerializedDataStore, ClassN
   for (let className in data) {
     for (let entry of data[className]) {
       for (let prop in entry) {
-        if (classNames.includes(entry[prop])) {
-          entry[prop] = data[className][entry[prop]]
+        if (classNames.includes(schema[className][prop])) {
+          entry[prop] = data[schema[className][prop]][entry[prop]]
         }
       }
     }
@@ -36,13 +36,13 @@ function parse(input: any, schema: any) {
 
   for (let className in input) {
     let ar = res[className] = []
-    let length = Object.keys(schema[className]).length
+    let length = input[className][Object.keys(input[className]).first].length
     for (let i = 0; i < length; i++) {
       ar.add({})
     }
 
     for (let propName in input[className]) {
-      for (let i in ar) {
+      for (let i = 0; i < ar.length; i++) {
         ar[i][propName] = input[className][propName][i]
       }
     }
