@@ -1,25 +1,42 @@
 import { deserialize, serialize } from "./../../app/src/josmSerializer"
 
-let me = {
+
+// TODO: Array type
+
+let schema = {
+  students: {
+    subject: "subjects",
+    name: "String"
+  },
+  subjects: {
+    color: "colors",
+    name: "String",
+  },
+  colors: {
+    r: "Number",
+    g: "Number",
+    b: "Number"
+  }
+}
+
+
+let deserialized = deserialize({
   students: {
     name: [
       "Max",
       "Daniel"
     ],
     subject: [
-      1,
-      1
+      0,
+      0
     ]
   },
   subjects: {
     color: [
-      1
-    ],
-    students: [
-      [1, 2]
+      0
     ],
     name: [
-      "MEDt"
+      "MEDT"
     ]
   },
   colors: {
@@ -33,7 +50,11 @@ let me = {
       255
     ]
   }
-}
+}, schema)
 
 
-console.log(deserialize(me))
+let serialized = serialize(deserialized, schema)
+
+
+console.log(serialized)
+

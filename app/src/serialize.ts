@@ -8,12 +8,13 @@ export function serialize<DataStore extends GenericJosmDataStore, ClassName exte
 
   for (let className in data) {
     for (let propName in data[className]) {
-      for (let elem of data[className][propName]) {
-        if (classNames.includes(elem)) {
+      if (classNames.includes(schema[className][propName])) {
+        for (let j = 0; j < data[className][propName].length; j++) {
+          const elem = data[className][propName][j];
           for (let i = 0; i < store[schema[className][propName]].length; i++) {
 
             if (store[schema[className][propName]][i] === elem) {
-              data[className][propName].add(i)
+              data[className][propName][j] = i
             }
           }
         }
@@ -35,7 +36,7 @@ function parse(input: any, schema: any) {
       res[className][propName] = []
     }
 
-    for (let entry of res[className]) {
+    for (let entry of input[className]) {
       for (let propName of propNames) {
         res[className][propName].add(entry[propName])
       }
