@@ -8,16 +8,16 @@
     "build": "tsc -p ./tsconfig.prod.json",
     "dev": "webpack --config webpack.dev.config.js",
     "deploy": "npm run build && npm publish",
-    "test": "node ./test/dist/test-bundle"
+    "test": "node ./test/dist/josmSerializer"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maximilianMairinger/josmSerializer.git"
   },
   "keywords": [
-  "josm",
-  "serializer"
-],
+    "josm",
+    "serializer"
+  ],
   "author": "Maximilian Mairinger",
   "license": "ISC",
   "bugs": {
@@ -39,5 +39,8 @@
     "webpack-cli": "^3.3.10",
     "webpack-inject-plugin": "^1.5.2",
     "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "xrray": "^4.6.4"
   }
 }
