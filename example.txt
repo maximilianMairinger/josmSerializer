@@ -1,18 +1,20 @@
-Students {
-  subject: Subject
-  name: String
-}
+{
+  Student: {
+    subject: Subject
+    name: String
+  },
 
-Subjects {
-  students: Student[]
-  color: Color
-  name: String
-}
+  Subject: {
+    students: Student[]
+    color: Color
+    name: String
+  },
 
-Colors {
-  r: Number
-  g: Number
-  b: Number
+  Color: {
+    r: Number
+    g: Number
+    b: Number
+  }
 }
 
 ------------
