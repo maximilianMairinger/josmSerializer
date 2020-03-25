@@ -1,0 +1,64 @@
+Students {
+  subject: Subject
+  name: String
+}
+
+Subjects {
+  students: Student[]
+  color: Color
+  name: String
+}
+
+Colors {
+  r: Number
+  g: Number
+  b: Number
+}
+
+------------
+
+db.students.first.subject.forEach(() => {
+  
+})
+
+
+------------
+
+
+{
+  students: {
+    name: [
+      "Max",
+      "Daniel"
+    ],
+    subject: [
+      1,
+      1
+    ]
+  },
+  subjects: {
+    color: [
+      1
+    ],
+    students: [
+      [1, 2]
+    ],
+    name: [
+      "MEDt"
+    ]
+  },
+  color: {
+    r: [
+      255
+    ],
+    g: [
+      255
+    ],
+    b: [
+      255
+    ]
+  }
+}
+
+  
+
