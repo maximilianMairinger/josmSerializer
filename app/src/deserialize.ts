@@ -19,9 +19,24 @@ export function deserialize<DataStore extends GenericSerializedDataStore, ClassN
   for (let className in data) {
     for (let entry of data[className]) {
       for (let prop in entry) {
-        if (classNames.includes(schema[className][prop])) {
-          entry[prop] = data[schema[className][prop]][entry[prop]]
+        let type = schema[className][prop]
+        let isOfTypeArray = type.endsWith("[]")
+        if (isOfTypeArray) type = type.substr(0, type.length - 2)
+        if (classNames.includes(type)) {
+          if (isOfTypeArray) {
+            
+  
+            for (let i = 0; i < entry[prop].length; i++) {
+              entry[prop][i] = data[type][entry[prop][i]]
+            }
+  
+          }
+          else {
+            entry[prop] = data[type][entry[prop]]
+          }
         }
+        
+        
       }
     }
   }
