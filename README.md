@@ -65,9 +65,59 @@ let serialized = JSON.parse(await getDataFromSomeWhere())
 let unserialized = deserialize(serialized, schema)
 ```
 
+### Arrays
+
+A list of values can be represented in your schema like so
+
+```ts
+let schema = {
+
+  student: {
+    favColors: "Color[]"
+  },
+
+  color: {
+    r: "Number",
+    g: "Number",
+    b: "Number"
+  }
+
+}
+```
+
+And accordingly used
+
+```ts
+let red = {
+  r: 255,
+  g: 0,
+  b: 0
+}
+
+let blue = {
+  r: 0,
+  g: 0,
+  b: 255
+}
+
+let student = {
+  favColors: [red, blue]
+}
+
+let store = {
+  student: [
+    student
+  ],
+  color: [
+    red,
+    blue
+  ]
+}
 
 
+```
 
+This can be serialized and deserialized just like above.
 
 ## Contribute
 
