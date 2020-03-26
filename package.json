@@ -1,6 +1,6 @@
 {
   "name": "josm-serializer",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Searializer and deserializer for josm.",
   "main": "app/dist/josmSerializer.js",
   "types": "app/dist/josmSerializer.d.ts",
