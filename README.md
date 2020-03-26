@@ -13,12 +13,12 @@ import { deserialize, serialize } from "josm-serializer"
 
 let schema = {
 
-  Student: {
+  student: {
     name: "string",
     favColor: "Color"
   },
 
-  Color: {
+  color: {
     r: "Number",
     g: "Number",
     b: "Number"
@@ -28,6 +28,8 @@ let schema = {
 ```
 
 Populate data in schema fashion and serialize it.
+
+> Note that the case of the classes / tables (in this example student, color) must be the same as in the dataset
 
 ```ts
 let color = {
