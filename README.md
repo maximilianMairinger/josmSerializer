@@ -15,13 +15,13 @@ let schema = {
 
   student: {
     name: "string",
-    favColor: "Color"
+    favColor: "color"
   },
 
   color: {
-    r: "Number",
-    g: "Number",
-    b: "Number"
+    r: "number",
+    g: "number",
+    b: "number"
   }
 
 }
@@ -73,13 +73,13 @@ A list of values can be represented in your schema like so
 let schema = {
 
   student: {
-    favColors: "Color[]"
+    favColors: "color[]"
   },
 
   color: {
-    r: "Number",
-    g: "Number",
-    b: "Number"
+    r: "number",
+    g: "number",
+    b: "number"
   }
 
 }
